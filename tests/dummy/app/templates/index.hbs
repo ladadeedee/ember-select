@@ -1,0 +1,23 @@
+{{docs-header}}
+
+{{docs-hero
+  slimHeading='ember-'
+  strongHeading='select'
+  byline='The extensible select component'}}
+
+{{#docs-demo as |demo|}}
+  {{#demo.example name='select.hbs'}}
+    <p>Please select your favorite fruit:</p>
+
+    {{x-select
+      model=fruits
+      value=favoriteFruit
+      valueKey='id'
+      labelKey='name'
+      openOnFocus=true
+      placeholder='Pick a fruit'}}
+  {{/demo.example}}
+
+  {{demo.snippet name='select.hbs'}}
+  {{demo.snippet name='controller.js'}}
+{{/docs-demo}}
