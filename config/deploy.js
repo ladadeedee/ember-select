@@ -3,8 +3,11 @@
 
 module.exports = function(deployTarget) {
   let ENV = {
-    build: {}
+    build: {},
     // include other plugin configuration that applies to all deploy targets here
+    git: {
+      repo: 'git@github.com:ladadeedee/ember-select.git'
+    }
   };
 
   if (deployTarget === 'development') {
