@@ -7,12 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('docs', function() {
-    this.route('usage');
-    this.route('api', function() {
-      this.route('item', { path: '/*path' });
-    });
-  });
+  this.route('docs');
 
   this.route('not-found', { path: '/*path' });
 });

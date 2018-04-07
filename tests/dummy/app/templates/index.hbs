@@ -1,13 +1,13 @@
-{{docs-header}}
-
 {{docs-hero
   slimHeading='ember-'
   strongHeading='select'
   byline='The extensible select component'}}
 
+<p><code>ember-select</code> is a highly configurable dropdown component for Ember applications. </p>
+
 {{#docs-demo as |demo|}}
   {{#demo.example name='select.hbs'}}
-    <p>Please select your favorite fruit:</p>
+    <p>I'd like to eat {{favoriteFruit.article}} {{favoriteFruit.name}}</p>
 
     {{x-select
       model=fruits
@@ -15,7 +15,8 @@
       valueKey='id'
       labelKey='name'
       openOnFocus=true
-      placeholder='Pick a fruit'}}
+      placeholder='Pick a fruit'
+      onSelect=(action 'selectFruit') }}
   {{/demo.example}}
 
   {{demo.snippet name='select.hbs'}}

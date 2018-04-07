@@ -4,9 +4,15 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   favoriteFruit: null,
   fruits: [
-    { id: 'a', name: 'Apple' },
-    { id: 'p', name: 'Pear' },
-    { id: 'o', name: 'Orange' }
-  ]
+    { id: 'a', name: 'apple', article: 'an' },
+    { id: 'p', name: 'pear', article: 'a' },
+    { id: 'o', name: 'orange', article: 'an' }
+  ],
+
+  actions: {
+    selectFruit(id, model) {
+      this.set('favoriteFruit', model);
+    }
+  }
 });
 // END-SNIPPET
