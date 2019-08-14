@@ -101,7 +101,8 @@ export default Component.extend(Evented, {
   actions: {
     blur() {
       // IE bug: prevent closing dropdown on scrollbar click
-      if (document.activeElement.classList.contains('es-options')) {
+      let classList = document.activeElement && document.activeElement.classList;
+      if (classList && classList.contains('es-options')) {
         return;
       }
 
