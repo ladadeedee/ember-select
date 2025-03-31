@@ -118,24 +118,6 @@ export default class SelectComponent extends Component.extend(Evented) {
   }
 
   @action
-  change(event) {
-    let query = event.target.value;
-
-    this.setProperties({
-      isDirty: true,
-      token: query,
-    });
-
-    if (this.onChange) {
-      this.onChange(query);
-    }
-
-    if (isPresent(query)) {
-      this.open();
-    }
-  }
-
-  @action
   clear() {
     this.set('isDirty', false);
     this.setOption('', false, !this.get('multiple'));
@@ -221,6 +203,27 @@ export default class SelectComponent extends Component.extend(Evented) {
 
         e.preventDefault();
         break;
+      default:
+        // `onkeydown` is triggered before input value is updated, so we must figure it out ourselves
+        let query = this.input.value;
+
+        // Only append new character if it's printable
+        if (e.key.length === 1) {
+          query += e.key;
+        }
+
+        this.setProperties({
+          isDirty: true,
+          token: query
+        });
+
+        if (this.onChange) {
+            this.onChange(query);
+        }
+
+        if (isPresent(query)) {
+            this.open();
+        }
     }
   }
 
